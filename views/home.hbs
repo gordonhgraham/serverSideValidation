@@ -27,27 +27,30 @@
     </table>
     <br>
     <h3>Sign up here to become a user: </h3>
+    {{#if error}}
+    <h3>{{error}}</h3>
+    {{/if}}
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <form data-toggle="validator" action="/signup" method="post" role="form" class="form">
           <div class="form-group">
             <label for="username">Username</label>
-            <input id="username" class="form-control" type="text" pattern="^[_A-z0-9]{1,18}$" maxlength="18" data-error="No special characters or spaces. Maximum length of 18! " name="username" required>
+            <input id="username" class="form-control" type="text" pattern="^[_A-z0-9]{1,18}$" maxlength="18" data-error="No special characters or spaces. Maximum length of 18! " name="username" value="{{user.username}}" required>
             <div class="help-block with-errors"></div>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input id="inputEmail" class="form-control" type="email" data-error="Is that really an email?" name="email" required>
+            <input id="inputEmail" class="form-control" type="email" data-error="Is that really an email?" name="email" value="{{user.email}}" required>
             <div class="help-block with-errors"></div>
           </div>
           <div class="form-group">
             <label for="firstname">First name</label>
-            <input id="firstname" class="form-control" type="text" pattern="^[_A-z]{1,30}$" maxlength="30" data-error="Letters only, and a max length of 30, please!" name="firstname" required>
+            <input id="firstname" class="form-control" type="text" pattern="^[_A-z]{1,30}$" maxlength="30" data-error="Letters only, and a max length of 30, please!" name="firstname" value="{{user.firstname}}" required>
             <div class="help-block with-errors"></div>
           </div>
           <div class="form-group">
             <label for="lastname">Last name</label>
-            <input id="lastname" class="form-control" type="text" pattern="^[_A-z]{1,30}$" maxlength="30" data-error="Letters only, and a max length of 30, please!" name="lastname" required>
+            <input id="lastname" class="form-control" type="text" pattern="^[_A-z]{1,30}$" maxlength="30" data-error="Letters only, and a max length of 30, please!" name="lastname" value="{{user.lastname}}" required>
             <div class="help-block with-errors"></div>
           </div>
           <div class="form-group">
